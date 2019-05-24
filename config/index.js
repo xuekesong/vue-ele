@@ -3,6 +3,27 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
+//代理路径
+const context = [ 
+  '/shopping',
+  '/ugc',
+  '/v1',
+  '/v2',
+  '/v3',
+  '/v4',
+  '/bos',
+  '/member',
+  '/promotion',
+  '/eus',
+  '/payapi',
+  '/img',
+]
+let _proxyTable = {};
+const proxArr = context.map(e => {
+  return _proxyTable[e] = {
+      target: 'http://cangdu.org:8001'
+    }
+})
 
 module.exports = {
   dev: {
@@ -10,12 +31,12 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: _proxyTable,
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
