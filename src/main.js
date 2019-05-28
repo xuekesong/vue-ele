@@ -7,12 +7,12 @@ import store from './store/index.js'
 import FastClick from 'fastclick'
 import './config/rem'
 
-Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示
+// Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示
 
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function () {
     FastClick.attach(document.body);//解决移动端点击事件300ms延迟
-  }, false)
+  }, true)
 }
 
 Vue.use(VueRouter)

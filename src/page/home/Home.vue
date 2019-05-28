@@ -1,6 +1,6 @@
 <template>
   <div>
-    <head-top>
+    <head-top signin-up="home">
       <span slot="logo" class="head-logo" @click="reload">ele-self</span>
     </head-top>
     <nav class="city-nav">
