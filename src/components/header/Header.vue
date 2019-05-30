@@ -15,6 +15,8 @@
     <section class="header-top__title ellipsis" v-if="headTitle">{{headTitle}}</section>
     
     <slot name="changecity"></slot>
+    <slot name="search"></slot>
+    <slot name="msite-title"></slot>
   </header>
 </template>
 
