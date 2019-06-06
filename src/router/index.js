@@ -3,8 +3,9 @@ import App from '../App'
 const home = r => require.ensure([], () => r(require('@/page/home/Home')), 'home')
 const login = r => require.ensure([], () => r(require('@/page/login/Login')), 'login')
 const forget = r => require.ensure([], () => r(require('@/page/forget/Forget')), 'forget')
-const city = r => require.ensure([], () => r(require('../page/city/City')), 'city')
-const msite = r => require.ensure([], () => r(require('../page/msite/Msite')), 'msite')
+const city = r => require.ensure([], () => r(require('@/page/city/City')), 'city')
+const msite = r => require.ensure([], () => r(require('@/page/msite/Msite')), 'msite')
+const search = r => require.ensure([], () => r(require('@/page/search/Search')), 'search')
 
 export default [
   {
@@ -14,24 +15,27 @@ export default [
       {
         path: '',
         redirect: '/home'
-      }, {
+      }, {//首页城市列表
         path: '/home',
         component: home
-      }, {
+      }, {//登录注册页
         path: '/login',
         component: login
-      }, {
+      }, {//修改密码页
         path: '/forget',
         component: forget
-      }, {
+      }, {//当前选择城市页
         path: '/city/:cityid',
         component: city
-      }, {
+      }, {//所有商铺列表页
         path: '/msite',
         component: msite,
         meta: {
           keepAlive: true
         }
+      }, {
+        path: '/search/:geohash',
+        component: search
       }
     ]
   }
